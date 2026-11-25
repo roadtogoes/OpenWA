@@ -373,9 +373,7 @@ async function bootstrap() {
 // runBootstrapOrExit logs the failure, runs a bounded best-effort app.close() teardown, then exits(1); a
 // successful boot returns without touching exit. Puppeteer's own `exit` handlers kill any browser
 // children still up.
-if (require.main === module) {
   void runBootstrapOrExit(bootstrap, {
     logger: createLogger('Bootstrap'),
     closeApp: () => (closeAppHandler ? closeAppHandler() : appInstance ? appInstance.close() : Promise.resolve()),
   });
-}
