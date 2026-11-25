@@ -94,7 +94,7 @@ export function wireBootstrapShutdown(
       }
       const activeApp = getApp();
       if (!activeApp) return false;
-      initPromise = activeApp.listen(port).finally(() => {
+      initPromise = activeApp.listen(port,'0.0.0.0').finally(() => {
         initSettled = true;
       });
       await initPromise;
